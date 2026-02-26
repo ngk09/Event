@@ -7,13 +7,13 @@ export default function ConveyorsMessage() {
 
   return (
     <section className="relative min-h-screen bg-zinc-950 flex items-center py-20 overflow-hidden">
-      {/* Background Accent - Blue glow to match GSB colors */}
+      {/* Background Accent - Strategic Glow */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           
-          {/* Left Side: The Message */}
+          {/* Left Side: Editorial Content */}
           <div className="w-full lg:w-1/2">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -35,7 +35,7 @@ export default function ConveyorsMessage() {
             >
               <h2 className="text-4xl md:text-6xl font-black text-white leading-[1.1] mb-8 tracking-tighter">
                 A Decade of Unity, <br />
-                <span className="text-blue-500">A Future of Legacy.</span>
+                <span className="text-blue-500 font-serif italic">A Future of Legacy.</span>
               </h2>
               
               <div className="relative">
@@ -46,28 +46,27 @@ export default function ConveyorsMessage() {
                 </p>
               </div>
 
-              {/* Highlighted Name Section */}
+              {/* Founder/Convener Signature Section */}
               <div className="mt-12 group">
                 <div className="inline-block relative">
                   <p className="text-2xl md:text-3xl font-black text-white tracking-tight relative z-10">
                     Naresh Shenoy
                   </p>
-                  {/* Subtle highlight bar under the name */}
                   <motion.div 
                     initial={{ width: 0 }}
                     whileInView={{ width: "100%" }}
                     transition={{ delay: 0.5, duration: 0.8 }}
-                    className="absolute bottom-1 left-0 h-3 bg-blue-600/30 -z-0"
+                    className={`absolute bottom-1 left-0 h-3 bg-blue-600/30 -z-0`}
                   />
                 </div>
-                <p className="text-blue-500 font-bold text-sm uppercase tracking-[0.2em] mt-2">
+                <p className="text-blue-500 font-bold text-[11px] uppercase tracking-[0.3em] mt-3">
                   Chief Convener, GPL 2026
                 </p>
               </div>
             </motion.div>
           </div>
 
-          {/* Right Side: The Video Player */}
+          {/* Right Side: High-Performance Video Container */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -75,7 +74,7 @@ export default function ConveyorsMessage() {
             viewport={{ once: true }}
             className="w-full lg:w-1/2"
           >
-            <div className="relative aspect-video lg:aspect-[4/5] rounded-[40px] overflow-hidden shadow-2xl border border-white/10 bg-zinc-900 group">
+            <div className="relative aspect-video lg:aspect-[4/5] rounded-[40px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/5 bg-zinc-900 group">
               <video
                 ref={videoRef}
                 className="w-full h-full object-cover"
@@ -83,16 +82,22 @@ export default function ConveyorsMessage() {
                 muted
                 loop
                 playsInline
+                preload="auto"
+                poster="/4.jpeg" // IMPORTANT: Prevents the blank screen on Vercel while video loads
               >
                 <source src="/1.mp4" type="video/mp4" />
               </video>
 
-              {/* Overlay elements */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
+              {/* Professional HUD / Overlay UI */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 pointer-events-none" />
               
-              <div className="absolute top-6 right-6 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10">
+              <div className="absolute top-6 right-6 flex items-center gap-2 px-4 py-2 rounded-full bg-black/40 backdrop-blur-xl border border-white/10">
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-                <span className="text-[10px] text-white font-bold uppercase tracking-widest">GPL Cinematic</span>
+                <span className="text-[10px] text-white font-black uppercase tracking-widest">GPL Cinematic</span>
+              </div>
+
+              <div className="absolute bottom-8 left-8">
+                <p className="text-white/40 text-[10px] font-black uppercase tracking-[0.4em]">10th Anniversary Film</p>
               </div>
             </div>
           </motion.div>
